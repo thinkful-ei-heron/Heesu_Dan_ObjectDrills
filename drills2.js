@@ -11,32 +11,44 @@ const studentData = [
   {
     name: 'Tim',
     status: 'Current student',
-    course: 'Biology',
+    course: 'Biology'
   },
   {
     name: 'Sue',
     status: 'Withdrawn',
-    course: 'Mathematics',
+    course: 'Mathematics'
   },
   {
     name: 'Liz',
     status: 'On leave',
-    course: 'Computer science',
-  },
+    course: 'Computer science'
+  }
 ];
 
 function enrollInSummerSchool(students) {
-  for(let i=0; i<students.length; i++) {
+  for (let i = 0; i < students.length; i++) {
     students[i].status = 'In Summer school';
   }
   return students;
   return {
     name: student.name,
     status: 'In Summer School',
-    course: student.course,
+    course: student.course
   };
-};
+}
 
+// you can pass in `scratchData` to test out `findByid`
+// your function
+const scratchData = [{ id: 22, foo: 'bar' }, { id: 28, foo: 'bizz' }, { id: 19, foo: 'bazz' }];
+
+function findById(items, idNum) {
+  // your code here
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].id === idNum) {
+      return items[i];
+    }
+  }
+}
 
 //TESTS
 
@@ -45,18 +57,18 @@ function testIt() {
     {
       name: 'Burt',
       status: 'Playing hooky',
-      course: 'Biology',
+      course: 'Biology'
     },
     {
       name: 'Melanie',
       status: 'Sick',
-      course: 'Mathematics',
+      course: 'Mathematics'
     },
     {
       name: 'Leonard',
       status: 'AWOL',
-      course: 'Computer science',
-    },
+      course: 'Computer science'
+    }
   ];
 
   var results = enrollInSummerSchool(testData);
@@ -88,7 +100,6 @@ function testIt() {
 }
 
 testIt();
-
 
 function testIt2() {
   const testData = [
@@ -129,3 +140,23 @@ function testIt2() {
 }
 
 testIt2();
+
+function testIt3() {
+  const testData = [{ id: 1, foo: 'bar' }, { id: 2, foo: 'bizz' }, { id: 3, bang: 'boo' }];
+  const result = findById(testData, 3);
+  if (!(result && result !== null && typeof result === 'object')) {
+    console.error('`findById` must return an object');
+    return;
+  }
+  if (result.id !== 3) {
+    console.error('Asked for item with id of `3` but got back one with id of ' + result.id);
+    return;
+  }
+  if (result.bang !== 'boo') {
+    console.error('Expected all key/value pairs from target object to be returned');
+    return;
+  }
+  console.log('SUCCESS: `findByid` is working');
+}
+
+testIt3();
