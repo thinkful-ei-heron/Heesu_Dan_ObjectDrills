@@ -26,3 +26,9 @@ let obj = {
 };
 
 console.log(obj.meals[3]);
+
+let employee = [{name: 'heesu', jobTitle: 'student'}, {name: 'Dan', jobTitle: 'student'},
+{name: 'amy', jobTitle: 'student'}];
+for(let i=0; i<employee.length; i++) {
+  console.log(employee[i].name + ' ' + employee[i].jobTitle);
+};
