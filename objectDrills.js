@@ -48,3 +48,27 @@ for (let i = 0; i < employee.length; i++) {
     console.log(employee[i].jobTitle + ' ' + employee[i].name + ' reports to ' + employee[i].boss + '.');
   else console.log(`${employee[i].jobTitle} ${employee[i].name} doesn't report to anybody.`);
 }
+
+let cipher = {
+    a:2,
+    b:3,
+    c:4,
+    d:5
+};
+let test = 'craft block argon meter bells brown croon droop'.split(' ');
+
+function decode(encode) {
+  let word = '';
+  for(let i=0; i<encode.length; i++) {
+    let first = encode[i].charAt(0);
+    if(cipher.hasOwnProperty(first)) {
+      word += encode[i].charAt(cipher[first]-1);
+    }
+    else {
+      word += ' ';
+    }
+  }
+  return word;
+}
+
+console.log (decode(test));
